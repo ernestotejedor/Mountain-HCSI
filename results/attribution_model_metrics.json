@@ -1,0 +1,44 @@
+{
+  "factual": [
+    {
+      "model": "linear",
+      "mean_fold_r2": 0.33324765022584935,
+      "mean_fold_mse": 0.5992773860079303,
+      "mean_fold_mae": 0.5842895860121188
+    },
+    {
+      "model": "gradient_boosting",
+      "mean_fold_r2": 0.5249725843417221,
+      "mean_fold_mse": 0.4084843178424828,
+      "mean_fold_mae": 0.4950996745266735
+    }
+  ],
+  "counterfactual_ghg_aerosols": [
+    {
+      "model": "linear",
+      "mean_fold_r2": 0.08594194531601748,
+      "mean_fold_mse": 0.8603501715805928,
+      "mean_fold_mae": 0.7092986836076706
+    },
+    {
+      "model": "gradient_boosting",
+      "mean_fold_r2": 0.21806779973749552,
+      "mean_fold_mse": 0.6844349503283119,
+      "mean_fold_mae": 0.6420753796558283
+    }
+  ],
+  "counterfactual_ghg": [
+    {
+      "model": "linear",
+      "mean_fold_r2": 0.19956365490260158,
+      "mean_fold_mse": 0.7247677106225451,
+      "mean_fold_mae": 0.6529271865634632
+    },
+    {
+      "model": "gradient_boosting",
+      "mean_fold_r2": 0.44305225071998,
+      "mean_fold_mse": 0.48330702816545507,
+      "mean_fold_mae": 0.5485924331349566
+    }
+  ]
+}
