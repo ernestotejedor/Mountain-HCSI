@@ -1,0 +1,54 @@
+# Mountain hydroclimatic stress analysis
+
+Code and processed data used to analyse the Hydroclimatic Stress Index (HCSI) reconstruction and its instrumental and CMIP6 comparisons.
+
+## Reproduce the analysis
+
+Python 3.10 or later is recommended.
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+python scripts/run_all.py
+```
+
+The scripts write summary tables to `results/` and figures to `figures/`.
+
+## Repository contents
+
+- `data/input/proxy_components.csv`: standardized proxy components used to calculate the HCSI.
+- `data/input/hcsi.csv`: final HCSI reconstruction and 95% uncertainty interval.
+- `data/input/instrumental_pyrenees.csv`: annual Pyrenean precipitation, temperature and vapour-pressure deficit.
+- `data/input/spei12.csv`: annual 12-month SPEI series used for the independent validation.
+- `data/input/climate_drivers.csv`: annual natural and external drivers used in the attribution models.
+- `data/processed/cmip6_trajectories.csv`: regional CMIP6 analogue trajectories shown in the manuscript analysis.
+- `scripts/01_hcsi_decomposition.py`: fixed-weight supply and demand decomposition, instrumental comparison, uncertainty estimates and sensitivity tests.
+- `scripts/02_extreme_events.py`: dry-warm and cool-wet years based on the ±1.5 standard-deviation threshold.
+- `scripts/03_cmip6_baseline.py`: common-baseline sensitivity test for the reconstruction and CMIP6 analogue.
+- `scripts/04_make_figures.py`: figures based on the calculated results.
+- `scripts/05_attribution_models.py`: linear and gradient-boosting models for the factual and resampled-forcing experiments.
+
+## HCSI definition
+
+The decomposition retains the weights used in the manuscript:
+
+```text
+supply = -0.291 × Z(precipitation)
+demand = 0.419 × Z(Tmax)
+       + 0.179 × Z(VPD JFMAM)
+       + 0.111 × Z(VPD 5-year)
+HCSI raw = supply + demand
+```
+
+The post-1980 analysis does not change these weights. Equal weights and weights estimated against pre-1980 SPEI are reported only as sensitivity tests.
+
+## Attribution analysis
+
+The attribution script is based on `Script_ML_Python.py` by Ivan Alfaro. It uses 20-fold shuffled cross-validation to compare linear regression and gradient boosting. The counterfactual experiments replace post-1900 greenhouse-gas and aerosol values with independent samples from the pre-1901 values and refit the models.
+
+This script produces the out-of-fold factual and counterfactual predictions. It does not calculate the risk ratio reported in the manuscript; that calculation must be documented as a separate step.
+
+## Data provenance
+
+The files in `data/input/` are processed analysis inputs copied from the manuscript project directory. Full proxy, reanalysis and CMIP6 source datasets are not redistributed here. Their original publications and data products should be cited as described in the manuscript.
