@@ -30,6 +30,7 @@ The four edited manuscript figures are stored as vector PDFs in `figures/final/`
 - `scripts/03_cmip6_baseline.py`: common-baseline sensitivity test for the reconstruction and CMIP6 analogue.
 - `scripts/04_make_figures.py`: figures based on the calculated results.
 - `scripts/05_attribution_models.py`: linear and gradient-boosting models for the factual and resampled-forcing experiments.
+- `scripts/06_legacy_risk_ratio.py`: reproduces the historical calculation underlying the rounded 15-fold value.
 - `figures/final/`: edited vector PDFs of the four manuscript figures.
 
 ## HCSI definition
@@ -50,7 +51,18 @@ The post-1980 analysis does not change these weights. Equal weights and weights 
 
 The attribution script is based on `Script_ML_Python.py` by Ivan Alfaro. It uses 20-fold shuffled cross-validation to compare linear regression and gradient boosting. The counterfactual experiments replace post-1900 greenhouse-gas and aerosol values with independent samples from the pre-1901 values and refit the models.
 
-This script produces the out-of-fold factual and counterfactual predictions. It does not calculate the risk ratio reported in the manuscript; that calculation must be documented as a separate step.
+This script produces the out-of-fold factual and counterfactual predictions. It does not reproduce the risk ratio previously reported in the manuscript.
+
+### Origin of the reported 15-fold value
+
+The historical point estimate can be reproduced from the saved gradient-boosting predictions as
+
+```text
+(26 exceedances / 43 years during 1980-2022) /
+(5 exceedances / 123 years during 1900-2022) = 14.874
+```
+
+This value rounds to 15. The calculation uses different factual and counterfactual evaluation windows and is therefore retained only to document the provenance of the reported number. The previously reported 95% interval of 8.2-22.4 is not reproduced by the available code or saved outputs. Run `python scripts/06_legacy_risk_ratio.py` to regenerate `results/legacy_risk_ratio.json`.
 
 ## Data provenance
 
