@@ -15,6 +15,8 @@ python scripts/run_all.py
 
 The scripts write summary tables to `results/` and figures to `figures/`.
 
+The four edited manuscript figures are stored as vector PDFs in `figures/final/`. They are the publication versions and are not overwritten by the plotting scripts.
+
 ## Repository contents
 
 - `data/input/proxy_components.csv`: standardized proxy components used to calculate the HCSI.
@@ -28,6 +30,7 @@ The scripts write summary tables to `results/` and figures to `figures/`.
 - `scripts/03_cmip6_baseline.py`: common-baseline sensitivity test for the reconstruction and CMIP6 analogue.
 - `scripts/04_make_figures.py`: figures based on the calculated results.
 - `scripts/05_attribution_models.py`: linear and gradient-boosting models for the factual and resampled-forcing experiments.
+- `figures/final/`: edited vector PDFs of the four manuscript figures.
 
 ## HCSI definition
 
