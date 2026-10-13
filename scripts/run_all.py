@@ -10,7 +10,6 @@ for script in [
     "03_cmip6_baseline.py",
     "04_make_figures.py",
     "05_attribution_models.py",
-    "06_legacy_risk_ratio.py",
 ]:
     print(f"Running {script}")
     runpy.run_path(SCRIPTS / script, run_name="__main__")
