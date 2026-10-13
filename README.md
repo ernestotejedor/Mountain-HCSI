@@ -4,13 +4,17 @@ Code and processed data used to analyse the Hydroclimatic Stress Index (HCSI) re
 
 ## Reproduce the analysis
 
-Python 3.10 or later is recommended.
+R 4.3 or later is recommended. The attribution model additionally requires Python 3.10 or later because that analysis was developed in Python by Ivan Alfaro.
+
+```r
+install.packages(c("ggplot2", "jsonlite", "zoo"))
+```
 
 ```bash
-python -m venv .venv
+python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
-python scripts/run_all.py
+Rscript scripts/run_all.R
 ```
 
 The scripts write summary tables to `results/` and figures to `figures/`.
@@ -25,11 +29,12 @@ The four edited manuscript figures are stored as vector PDFs in `figures/final/`
 - `data/input/spei12.csv`: annual 12-month SPEI series used for the independent validation.
 - `data/input/climate_drivers.csv`: annual natural and external drivers used in the attribution models.
 - `data/processed/cmip6_trajectories.csv`: regional CMIP6 analogue trajectories shown in the manuscript analysis.
-- `scripts/01_hcsi_decomposition.py`: fixed-weight supply and demand decomposition, instrumental comparison, uncertainty estimates and sensitivity tests.
-- `scripts/02_extreme_events.py`: dry-warm and cool-wet years based on the ±1.5 standard-deviation threshold.
-- `scripts/03_cmip6_baseline.py`: common-baseline sensitivity test for the reconstruction and CMIP6 analogue.
-- `scripts/04_make_figures.py`: figures based on the calculated results.
+- `scripts/01_hcsi_decomposition.R`: fixed-weight supply and demand decomposition, instrumental comparison, uncertainty estimates and sensitivity tests.
+- `scripts/02_extreme_events.R`: dry-warm and cool-wet years based on the ±1.5 standard-deviation threshold.
+- `scripts/03_cmip6_baseline.R`: common-baseline sensitivity test for the reconstruction and CMIP6 analogue.
+- `scripts/04_make_figures.R`: figures based on the calculated results.
 - `scripts/05_attribution_models.py`: linear and gradient-boosting models for the factual and resampled-forcing experiments.
+- `scripts/run_all.R`: runs the R analyses and then calls the original Python attribution workflow.
 - `figures/final/`: edited vector PDFs of the four manuscript figures.
 
 ## HCSI definition
