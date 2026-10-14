@@ -34,6 +34,7 @@ The four edited manuscript figures are stored as vector PDFs in `figures/final/`
 - `scripts/03_cmip6_baseline.R`: common-baseline sensitivity test for the reconstruction and CMIP6 analogue.
 - `scripts/04_make_figures.R`: figures based on the calculated results.
 - `scripts/05_attribution_models.py`: linear and gradient-boosting models for the factual and resampled-forcing experiments.
+- `scripts/README_attribution.md`: inputs, model settings, counterfactual experiments and outputs for the attribution analysis.
 - `scripts/run_all.R`: runs the R analyses and the Python attribution script.
 - `figures/final/`: edited vector PDFs of the four manuscript figures.
 
