@@ -1,57 +1,46 @@
 {
   "proxy_change_1901_1979_to_1980_2022": {
     "supply": {
-      "lower": -0.0002875598130125854,
-      "median": 0.07804231633764322,
-      "upper": 0.14959850182846102
+      "lower": 0.0008,
+      "median": 0.0781,
+      "upper": 0.1511
     },
     "demand": {
-      "lower": 0.12349340434966828,
-      "median": 0.5828571984429846,
-      "upper": 0.9501374256685806
+      "lower": 0.1318,
+      "median": 0.5838,
+      "upper": 0.9492
     },
     "hcsi_raw": {
-      "lower": 0.20659865479158185,
-      "median": 0.6586137622315142,
-      "upper": 1.0294267017778165
+      "lower": 0.2111,
+      "median": 0.6606,
+      "upper": 1.0271
     }
   },
   "instrumental_change_1901_1979_to_1980_2022": {
     "supply": {
-      "lower": -0.07010295267904831,
-      "median": 0.26668942033541515,
-      "upper": 0.609308387542627
+      "lower": -0.0683,
+      "median": 0.2701,
+      "upper": 0.6164
     },
     "demand": {
-      "lower": 1.3758375782494545,
-      "median": 2.0835915163548253,
-      "upper": 2.7882731950423083
+      "lower": 1.3978,
+      "median": 2.0854,
+      "upper": 2.7751
     },
     "stress_equal": {
-      "lower": 0.8030367055060823,
-      "median": 1.1744593911378756,
-      "upper": 1.5386104848533244
+      "lower": 0.8116,
+      "median": 1.1792,
+      "upper": 1.5336
     }
   },
   "spei_validation": {
-    "training_period": [
-      1951,
-      1979
-    ],
-    "test_period": [
-      1980,
-      2022
-    ],
-    "coefficient_supply": 0.5286656618059993,
-    "coefficient_demand": 0.0,
-    "training_correlation": 0.6385317397268064,
-    "test_correlation": 0.3915297917255025,
-    "test_rmse": 0.904053139380159
+    "training_period": [1951, 1979],
+    "test_period": [1980, 2022],
+    "coefficient_supply": 0.5287,
+    "coefficient_demand": 0,
+    "training_correlation": 0.6385,
+    "test_correlation": 0.3915,
+    "test_rmse": 0.9041
   },
-  "pre_1980_spei_proxy_weights": [
-    0.03628871698662192,
-    0.19393798646621066,
-    0.0,
-    0.0
-  ]
+  "pre_1980_spei_proxy_weights": [0.0363, 0.1939, 0, 0]
 }

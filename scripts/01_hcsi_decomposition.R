@@ -109,7 +109,9 @@ denominator_i <- abs(delta_i["supply"]) + abs(delta_i["demand"])
 instrumental_summary$fraction_of_absolute_supply_demand_change <-
   abs(instrumental_summary$change) / denominator_i
 
-spei <- read.csv(file.path(data_dir, "spei12.csv"), sep = ";")
+spei <- read.csv(
+  file.path(data_dir, "spei12.csv"), sep = ";", fileEncoding = "UTF-8-BOM"
+)
 names(spei)[names(spei) == "SPEI12"] <- "SPEI"
 validation <- merge(instrumental, spei, by = "Year")
 validation$realized_stress <- -validation$SPEI

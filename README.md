@@ -4,7 +4,7 @@ Code and processed data used to analyse the Hydroclimatic Stress Index (HCSI) re
 
 ## Reproduce the analysis
 
-R 4.3 or later is recommended. The attribution model additionally requires Python 3.10 or later because that analysis was developed in Python by Ivan Alfaro.
+The calculations were tested with R 4.3.3. Package versions are listed in `R-packages.txt`. The attribution model uses Python; its package versions are fixed in `requirements.txt`.
 
 ```r
 install.packages(c("ggplot2", "jsonlite", "zoo"))
@@ -34,7 +34,7 @@ The four edited manuscript figures are stored as vector PDFs in `figures/final/`
 - `scripts/03_cmip6_baseline.R`: common-baseline sensitivity test for the reconstruction and CMIP6 analogue.
 - `scripts/04_make_figures.R`: figures based on the calculated results.
 - `scripts/05_attribution_models.py`: linear and gradient-boosting models for the factual and resampled-forcing experiments.
-- `scripts/run_all.R`: runs the R analyses and then calls the original Python attribution workflow.
+- `scripts/run_all.R`: runs the R analyses and the Python attribution script.
 - `figures/final/`: edited vector PDFs of the four manuscript figures.
 
 ## HCSI definition
@@ -53,10 +53,10 @@ The post-1980 analysis does not change these weights. Equal weights and weights 
 
 ## Attribution analysis
 
-The attribution script is based on `Script_ML_Python.py` by Ivan Alfaro. It uses 20-fold shuffled cross-validation to compare linear regression and gradient boosting. The counterfactual experiments replace post-1900 greenhouse-gas and aerosol values with independent samples from the pre-1901 values and refit the models.
+The attribution script was developed from `Script_ML_Python.py` by Ivan Alfaro. It uses 20-fold shuffled cross-validation to compare linear regression and gradient boosting. The counterfactual experiments replace post-1900 greenhouse-gas and aerosol values with samples from the pre-1901 values and refit the models.
 
 This script produces the out-of-fold factual and counterfactual predictions used to evaluate the effects of greenhouse-gas and aerosol forcing.
 
 ## Data provenance
 
-The files in `data/input/` are processed analysis inputs copied from the manuscript project directory. Full proxy, reanalysis and CMIP6 source datasets are not redistributed here. Their original publications and data products should be cited as described in the manuscript.
+The files in `data/input/` are processed inputs from the manuscript analysis. The source publications and data products are cited in the manuscript.

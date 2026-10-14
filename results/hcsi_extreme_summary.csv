@@ -1,4 +1,4 @@
-period,event,n_years
-1602-1979,cool-wet,19
-1602-1979,dry-warm,8
-1980-2022,dry-warm,22
+"period","event","n_years"
+"1602-1979","cool-wet",19
+"1602-1979","dry-warm",8
+"1980-2022","dry-warm",22
